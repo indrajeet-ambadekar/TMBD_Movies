@@ -126,7 +126,7 @@ moviesApp.service('moviesService', function($http, $q) {
     },
     getFilteredMovies: function(ApiKey, filter, page) {
       var deferred = $q.defer();
-      if(filter=='top'){
+      if(filter==='top'){
       	var params = "popularity.desc";
       }
       else{
