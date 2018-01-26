@@ -1,0 +1,66 @@
+<div id="movieModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h2 class="modal-title">
+					{{selectedMovie.title}}
+				</h2>
+			</div>
+			<div class="modal-body">
+				<div class='row'>
+					<div class='col-md-4'>
+						<img src="{{getMoviePath(selectedMovie.poster_path)}}" width="100%">
+					</div>
+					<div class='col-md-8'>
+						<h4>Overview:</h4>
+						<div>{{selectedMovie.overview}}</div>
+						<br/>
+						<div class='row'>
+							<div class='col-md-1 text-center'>
+								<div class="AddFav" title="Add to favourites" ng-click="addToFav(selectedMovie)">
+									<i class='fa fa-heart'></i>
+								</div>
+							</div>
+						</div>
+
+						<h4>Release Date:</h4>
+						<div>{{selectedMovie.release_date}}</div>
+						<br/>
+						<div class='lang'>
+							<b>Languages</b>: <span ng-repeat="lang in selectedMovie.spoken_languages">{{lang.name}} &nbsp;</span>
+						</div>
+						<br/>
+						<div class='lang'>
+							<b>Genres</b>: <span ng-repeat="genre in selectedMovie.genres">{{genre.name}} &nbsp;</span>
+						</div>
+						<div class='lang'>
+							<b>Production</b>: <span ng-repeat="producer in selectedMovie.production_companies">{{producer.name}} &nbsp;</span>
+						</div>
+						<br/>
+						<div class='CastContainer'>
+							<div><b>Cast</b>: </div>
+
+							<div class="castHolder" ng-repeat="person in selectedMovie.cast">
+								<img src="images/person.jpg" height="170" width="100%"/>
+								<div class='castPic' style="background: url('https://image.tmdb.org/t/p/w138_and_h175_face/{{person.profile_path}}');"></div>
+								<div><b>{{person.name}}</b></div>
+								<div class='smallFont'>{{person.character}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div class='movieContainer' id="filtered">
+	<div class='title'>Top rated movies</div>
+	<react-component props="moviesObj" name="movieElement"></react-component>
+</div>

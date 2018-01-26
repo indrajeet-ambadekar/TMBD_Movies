@@ -1,0 +1,55 @@
+<style type="text/css">
+
+</style>
+<div class='DetailsContainer' ng-if="movieData!=undefined">
+  <div class='moveList' ng-repeat="movie in movieData.results">
+    <div class='row'>
+      <div class='col-md-4'>
+        <img src="{{getMoviePath(movie.poster_path)}}" width="300" height="450" />
+      </div>
+      <div class='col-md-8'>
+
+        <div class='movieTitle'>
+          {{movie.title}}
+          <year>({{movie.release_year}})</year>
+        </div>
+
+        <div class='row'>
+          <div class='col-md-1 text-center'>
+            <div class="AddFav" title="Add to favourites">
+              <i class='fa fa-heart'></i>
+            </div>
+          </div>
+        </div>
+        <div class='overview'>
+          <h3>Overview</h3>
+          {{movie.overview}}
+        </div>
+        <br/>
+        <div class='lang hide'>
+          <b>Languages</b>: <span ng-repeat="lang in movie.spoken_languages">{{lang.name}} &nbsp;</span>
+        </div>
+        <br/>
+        <div class='lang hide'>
+          <b>Genres</b>: <span ng-repeat="genre in movie.genres">{{genre.name}} &nbsp;</span>
+        </div>
+        <br/>
+        <!-- <div class='CastContainer'>
+				<b>Cast</b>: 
+				<div class="row">
+
+					<div class="col-md-2 castHolder" ng-repeat="person in movie.cast">
+						<img src="images/person.jpg" height="170" width="100%"/>
+						<div class='castPic' style="background: url('https://image.tmdb.org/t/p/w138_and_h175_face/{{person.profile_path}}');"></div>
+						<div><b>{{person.name}}</b></div>
+						<div class='smallFont'>{{person.character}}</div>
+					</div>
+				</div>
+			</div> -->
+        <br/>
+
+      </div>
+    </div>
+  </div>
+
+</div>

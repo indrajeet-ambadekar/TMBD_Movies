@@ -1,0 +1,46 @@
+<div class='searchBox'>
+  <div class='row'>
+    <div class="form-group">
+      <div class="input-group">
+        <div class='col-md-8'>
+          <input type="text" class='form-control' ng-keypress="watchKeywords($event.keyCode)" placeholder="Look for a movie or an actor/actress" ng-model="searchParams">
+        </div>
+        <div class='col-md-1'>
+          <button class='btn btn-danger' ng-click="findSearchData()">
+						<i class='fa fa-search'></i>
+					</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='movieContainer'>
+        <div class='title'>Recently released movies</div>
+        <div class='row'>
+          <react-component ng-repeat="movie in recentMoviesObj.results | limitTo:12" props="movie" name="movieGridElement"></react-component>
+          <div class='col-md-12 text-center'>
+            <button class='btn btn-default viewMore' ng-click="viewMore('recent')">
+							View More
+						</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class='movieContainer'>
+        <div class='title'>Top rated movies</div>
+        <div class='row'>
+          <react-component ng-repeat="movie in topMoviesObj.results | limitTo:12" props="movie" name="movieGridElement"></react-component>
+          <div class='col-md-12 text-center'>
+            <button class='btn btn-default viewMore' ng-click="viewMore('top')">
+							View More
+						</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
