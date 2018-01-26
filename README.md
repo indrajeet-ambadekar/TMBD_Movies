@@ -12,10 +12,12 @@ there are two test users created in for you.
 
 ## user 1:
 userName: 'testuser1'
+
 password: 'testuser1'
 
 ## user 2:
 userName: 'testuser2'
+
 password: 'testuser2'
 
 ## Build & development
